@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For You</title>
+    <title>beybuchka sma7li</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -63,18 +63,79 @@
             animation: fadeIn 2s forwards 1s;
         }
 
-        .enter-btn {
-            margin-top: 40px;
-            padding: 14px 40px;
+                .choices {
+            display: flex;
+            gap: 25px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+            justify-content: center;
+            opacity: 0;
+            animation: fadeIn 2s forwards 2s;
+        }
+
+        .yes-btn,
+        .no-btn {
+            padding: 16px 35px;
+            border-radius: 50px;
             border: 1px solid #f2b6c6;
             background: transparent;
             color: white;
-            font-size: 1rem;
             cursor: pointer;
-            transition: 0.4s;
-            border-radius: 50px;
+            transition: 0.4s ease;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .yes-btn:hover,
+        .no-btn:hover {
+            background: #f2b6c6;
+            color: black;
+            box-shadow: 0 0 25px #f2b6c6;
+        }
+
+        .happy-page {
+            position: fixed;
+            inset: 0;
+            background: #050505;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 10000;
             opacity: 0;
-            animation: fadeIn 2s forwards 2s;
+            visibility: hidden;
+            transition: 1s ease;
+        }
+
+        .happy-page.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .happy-content {
+            text-align: center;
+            animation: fadeUp 1.5s ease;
+        }
+
+                .happy-image {
+            width: 280px;
+            max-width: 85%;
+            border-radius: 25px;
+            margin-bottom: 25px;
+            animation: bounce 2s infinite;
+            box-shadow: 0 0 40px rgba(242,182,198,0.25);
+        }
+
+        .happy-content h2 {
+            font-size: 4rem;
+            color: #f2b6c6;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .happy-content p {
+            font-size: 1.5rem;
+            color: white;
         }
 
         .enter-btn:hover {
@@ -193,9 +254,29 @@
             margin-bottom: 20px;
         }
 
-        .final p {
+                .final p {
             color: #f2b6c6;
             font-size: 1.2rem;
+        }
+
+        .next-btn {
+            margin-top: 40px;
+            padding: 15px 40px;
+            border-radius: 50px;
+            border: 1px solid #f2b6c6;
+            background: transparent;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.4s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .next-btn:hover {
+            background: #f2b6c6;
+            color: black;
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #f2b6c6;
         }
 
         /* PARTICLES */
@@ -250,6 +331,22 @@
             }
         }
 
+        @keyframes bounce {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+            to {
+                transform: translateY(-100vh);
+            }
+        }
+
         /* MOBILE */
 
         @media(max-width: 768px) {
@@ -281,6 +378,12 @@
 </head>
 <body>
 
+    <style>
+        #mainWebsite {
+            display: block;
+        }
+    </style>
+
     <!-- MUSIC -->
 
     <audio id="bgMusic" loop>
@@ -289,37 +392,60 @@
 
     <!-- INTRO -->
 
-    <div class="intro" id="intro">
+    <div class="intro" id="intro" style="display:none; opacity:1;">
+
         <h1>
-            I know you're angry...<br>
-            But please stay for a moment.
+            Ew beybuchka mateb9i tesma7li ?
         </h1>
 
-        <p>
-            Because no matter what happens...<br>
-            You're still mine.
-        </p>
+        <div class="choices">
+            <button class="yes-btn" id="yesBtn">
+                No 😒
+            </button>
 
-        <button class="enter-btn" onclick="enterSite()">
-            Enter
-        </button>
+            <button class="no-btn" onclick="openHappyPage()" id="noBtn">
+                Yes, I forgive you 😭💕
+            </button>
+        </div>
+
     </div>
+
+    <!-- HAPPY PAGE -->
+
+    <div class="happy-page" id="happyPage">
+
+        <div class="happy-content">
+            <img src="image1.jpg" class="happy-image" alt="happy image">
+
+            <h2>
+                YAAAYYYYYYY 🎉🎉🎉
+            </h2>
+
+            <p>
+                n3rv ane enak ent teb9ini 😭💕✨
+            </p>
+        </div>
+
+    </div>
+
+    <!-- MAIN WEBSITE -->
+
+    <div id="mainWebsite">
 
     <!-- HERO -->
 
     <section class="hero">
 
         <div class="hero-content">
-            <h2>I hate seeing you upset.</h2>
+            <h2>Ane manb9i nchewvk mnvga3 wlla mkadar.</h2>
 
             <p>
-                If I could remove every bad feeling from your heart,
-                I would.
+                nb9i nchewvk ela v as3ad 7alle da2imn.
                 <br><br>
-                I know I hurt you.
-                And I know words alone cannot fix everything.
-                But I still wanted you to know...
-                I love you more than my pride.
+                Na3rv eni gtlak chi maw zyn 3andak.
+                w na3rv 3len lklam wa7do maygd ydawi kel chi.
+                9er mezltndorak ta3rv 3leni mezlt neb9ik w 9ali 3liye
+                w 4e eli glt lak matyt lahi n3elo 
             </p>
         </div>
 
@@ -332,24 +458,24 @@
         <div class="card">
             <h3>01</h3>
             <p>
-                Even when you're angry,
-                I still look at you with love.
+                7atte w ent mnvga3 3liye,
+                ane mezlt neb9ik.
             </p>
         </div>
 
         <div class="card">
             <h3>02</h3>
             <p>
-                Your silence hurts more than your anger.
+                8arke ndor kel chi yarja3 l6abi3to.
             </p>
         </div>
 
         <div class="card">
             <h3>03</h3>
             <p>
-                I don't want to win the argument.
+                w matyt lahi n3el ey chi mn 4e eli glt lak.
                 <br>
-                I just want you back.
+                7aglla 9bel i3ti4ari.
             </p>
         </div>
 
@@ -377,35 +503,76 @@
     <section class="final">
 
         <h2>
-            Please don't stay mad forever.
+            prd sma7li beybushka.
         </h2>
 
         <p>
-            I miss us.
+            I miss us 😔.
         </p>
 
+        <button class="next-btn" onclick="showEnding()">
+            kemel 
+        </button>
+
     </section>
+
+        </div>
 
     <!-- SCRIPT -->
 
     <script>
 
-        // ENTER WEBSITE
+                                // OPENING NOW APPEARS AT THE END
 
-        function enterSite() {
+        const intro = document.getElementById('intro');
+        const finalSection = document.querySelector('.final');
 
-            const music = document.getElementById('bgMusic');
+        intro.style.display = 'none';
+
+        function showEnding() {
+
+            intro.style.display = 'flex';
+            intro.style.opacity = '1';
+
+        }
+
+        // BUTTON GAME
+
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const music = document.getElementById('bgMusic');
+
+        let scale = 1;
+        let yesClicks = 0;
+
+        yesBtn.addEventListener('click', () => {
+
+            yesClicks++;
+
+            scale *= 2;
+
+            noBtn.style.transform = `scale(${scale})`;
+
+            if(yesClicks >= 4) {
+                yesBtn.style.display = 'none';
+            }
+
+        });
+
+        function openHappyPage() {
 
             music.volume = 0.7;
             music.play();
 
-            const intro = document.getElementById('intro');
-
-            intro.style.opacity = '0';
+            document.getElementById('intro').style.opacity = '0';
 
             setTimeout(() => {
-                intro.style.display = 'none';
-            }, 1500);
+
+                document.getElementById('mainWebsite').style.display = 'none';
+
+                document.getElementById('happyPage').classList.add('show');
+
+            }, 800);
 
         }
 
